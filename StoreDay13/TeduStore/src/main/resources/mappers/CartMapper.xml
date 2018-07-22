@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+  
+<mapper namespace="cn.tedu.store.mapper.CartMapper">
+	<!-- 修改数量 -->
+	<!-- 
+		void updateById(@Param("num") Integer num,
+			        @Param("id") Integer id);
+	 -->
+	 
+	 <update id="updateById">
+	 	{call updateCart(#{num},#{id})}
+	 </update>
+	
+	<!-- 单行删除 -->
+	<!-- void deleteById(Integer id); -->
+	<delete id="deleteById">
+		{call delById(#{id})}
+	</delete>
+	
+	
+	<!-- 批量删除 -->
+	<!-- 
+	void deleteByBatch(Integer [] ids);
+	 -->
+	<delete id="deleteByBatch">
+		delete from t_cart
+		where id in
+		<foreach collection="array" item="id"
+		open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+	
+	
+	<!-- 查询购物车信息 -->
+	<!-- 
+		List<CartVo> selectCartByUid(Integer uid);
+	 -->
+	<select id="selectCartByUid"
+			  resultType="cn.tedu.store.vo.CartVo">
+	select
+			t_cart.id id,
+			uid,
+			goods_id goodsId,
+			t_cart.num num,
+			image,
+			title,
+			price
+		from 
+			t_cart,t_goods
+		where
+			t_cart.goods_id=t_goods.id
+		and
+			uid=#{uid}
+			  
+	</select>
+	
+	
+	<!-- 插入数据到cart表 -->
+	<!-- void insertCart(Cart cart); -->
+	<insert id="insertCart" 
+		parameterType="cn.tedu.store.bean.Cart">
+		insert into t_cart(
+			uid,goods_id,num,
+			created_user,created_time,
+			modified_user,modified_time
+		)values(
+			#{uid},#{goodsId},#{num},
+			#{createdUser},#{createdTime},
+			#{modifiedUser},#{modifiedTime}
+		)
+	</insert>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

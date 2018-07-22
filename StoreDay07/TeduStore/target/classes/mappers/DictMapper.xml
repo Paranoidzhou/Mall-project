@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+  
+<mapper namespace="cn.tedu.store.mapper.DictMapper">
+	<!-- 查询省份信息 -->
+	<!-- List<Province> selectProvince(); -->
+	<select id="selectProvince" 
+		resultType="cn.tedu.store.bean.Province">
+		select
+			id,
+			province_code provinceCode,
+			province_name provinceName
+		from
+			t_dict_provinces			
+	</select>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

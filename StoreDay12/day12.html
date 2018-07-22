@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>day12</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<h1>商品管理</h1>
+<h2>1.商品分类</h2>
+<h2>2.热门商品</h2>
+<h2>3.商品展示</h2>
+<h3>显示页面</h3>
+<p>新建GoodsController类,定义方法,显示页面</p>
+<pre><code>@Controller
+@RequestMapping(&quot;/goods&quot;)
+public class GoodsController extends BaseController{
+    @RequestMapping(&quot;/showSearch.do&quot;)
+    public String showSearch(){
+        return &quot;search&quot;;
+    }
+}
+</code></pre>
+
+<p>把search.html改成search.jsp</p>
+<h3>3.1商品展示-持久层</h3>
+<h3>3.2商品展示-业务层</h3>
+<h3>3.3商品展示-控制器层</h3>
+<pre><code>/showSearch.do
+参数列表:categoryId,page,map
+请求方式:get
+响应方式：转发
+@Resource
+private IGoodsService goodsService;
+public String showSearch(Integer categoryId,Integer page,ModelMap map){
+    //1.计算offset
+    Integer offset = (page-1)*12;
+    //2.调用业务层方法
+    List&lt;Goods&gt; list = 
+    goodsService.getGoodsByCategoryId(categoryId,offset,12);
+
+    //3.把list添加到map对象中
+
+    return &quot;search&quot;;
+}
+</code></pre>
+
+<h3>3.4商品展示-页面</h3>
+<pre><code>在index.jsp上添加链接
+
+&lt;li&gt;&lt;a href=&quot;../goods/showSearch.do?categoryId=${cc.id}&quot;&gt;${cc.name}&lt;/a&gt;&lt;/li&gt;
+
+在search.jsp页面显示商品信息
+</code></pre>
+
+<p>调整页面</p>
+<p>共?条记录</p>
+<p>在GoodsMapper接口中定义方法；获取商品的记录数</p>
+<pre><code>Integer selectCount(Integer categoryId);
+</code></pre>
+
+<p>在GoodsMapper.xml中,编写sql语句</p>
+<pre><code>&lt;select id=&quot;selectCount&quot; resultType=&quot;java.lang.Integer&quot;&gt;
+    select count(*)
+    from    
+        t_goods
+    where
+        category_id = #{categoryId}
+&lt;/select&gt;
+</code></pre>
+
+<p>测试：（１０分钟）</p>
+<p>在IGoodsService接口中定义方法</p>
+<pre><code>Integer getCount(Integer categoryId);
+</code></pre>
+
+<p>在GoodsService实现中,实现方法;方法的功能;返回持久层的记录数</p>
+<p>11点15上课</p>
+<p>在GoodsController类中的showSearch方法中,添加代码</p>
+<pre><code>Integer count = goodsService.getCount(categoryId);
+map.addAttribute(&quot;count&quot;,count);
+</code></pre>
+
+<p>控制器方法调整后的最终代码</p>
+<pre><code>public String showSearch(
+        Integer categoryId,
+        Integer page,
+        ModelMap map){
+    //在index.jsp页面的三级分类连接到页面时,page是null
+    if(page==null){
+        page = 1;
+    }
+    //1.计算offset
+    Integer offset = (page-1)*12;
+    //2.调用业务层方法
+    List&lt;Goods&gt; list = 
+        goodsService.getGoodsByCategoryId(
+                categoryId,offset,12);
+
+    //3.把list添加到map对象中
+    map.addAttribute(&quot;goodsList&quot;,list);
+    //4.在map中添加记录数
+    Integer count = goodsService.
+            getCount(categoryId);
+    map.addAttribute(&quot;count&quot;,count);
+
+    //5.共?页
+    Integer pages = 
+            count%12==0?count/12:count/12+1;
+    map.addAttribute(&quot;pages&quot;,pages);
+
+    //6.把categoryId添加到map对象中
+    map.addAttribute(&quot;categoryId&quot;,categoryId);
+
+    //7.设置当前页
+    map.addAttribute(&quot;curpage&quot;, page);
+
+    return &quot;search&quot;;
+}
+</code></pre>
+
+<p>页面的分页代码</p>
+<pre><code>&lt;c:forEach var=&quot;i&quot; begin=&quot;1&quot; end=&quot;${pages}&quot;&gt;
+    &lt;a href=&quot;../goods/showSearch.do?categoryId=${categoryId}&amp;page=${i}&quot;
+
+    &lt;c:if test=&quot;${curpage==i}&quot;&gt;
+        style=&quot;color:red&quot;
+    &lt;/c:if&gt;
+
+    &gt;${i}&lt;/a&gt;
+&lt;/c:forEach&gt;
+</code></pre>
+
+<h2>4.商品详情</h2>
+<p>显示商品详情页</p>
+<pre><code>在GoodsController类中定义方法:显示详情页
+@RequestMapper(&quot;/showProductDetials.do&quot;)
+public String showProductDetails(){
+    return &quot;product_details&quot;;
+}
+</code></pre>
+
+<p>改product<em>details.html改成product</em>details.jsp</p>
+<h3>4.1商品详情-持久层</h3>
+<p>1.在GoodsMapper接口中定义方法</p>
+<pre><code>Goods selectGoodsById(String id);
+</code></pre>
+
+<p>2.在GoodsMapper.xml中编写sql语句</p>
+<pre><code>&lt;select id=&quot;selectGoodsById&quot; resultType=&quot;xx.xx.Goods&quot;&gt;
+    select
+        .....
+    from
+        t_goods
+    where
+        id=#{id}
+&lt;/select&gt;
+</code></pre>
+
+<p>测试:</p>
+<h3>4.2商品详情-业务层</h3>
+<p>1.在IGoodsService接口中,定义方法</p>
+<pre><code>Goods getGoodsById(String id);
+</code></pre>
+
+<p>2.在GoodsService实现类中实现方法,方法完成功能:返回持久层的goods对象</p>
+<p>(10分钟)</p>
+<h3>4.3商品详情-控制器</h3>
+<pre><code>/showProductDetails.do
+参数列表:id,map
+请求方式:get
+响应方式:转发
+
+修改方法
+public String showProductDetails(String id,ModelMap map){
+    //1.调用业务层方法;返回goods对象
+    //2.把goods对象添加到map对象中
+    return &quot;&quot;;
+}
+</code></pre>
+
+<h3>4.4商品详情-页面</h3>
+<p>1.在sear.jsp中修改图片和title的onclick事件的函数</p>
+<pre><code>onclick=&quot;toItemInfo(${goods.id})&quot;
+
+&lt;script type=&quot;text/javascript&quot;&gt;
+/* 商品详情页  */
+function toItemInfo(id) {
+    if (id) {
+        window.location.href=&quot;../goods/showProductDetails.do?id=&quot;+id;
+    }else {
+        alert(&quot;商品id不存在&quot;);
+    }
+}
+</code></pre>
+
+<p>2.在product_details.jsp页面上显示商品信息</p>
+<pre><code> &lt;!-- 右侧--&gt;
+&lt;div class=&quot;right_detail lf&quot;&gt;
+    &lt;!-- 商品名称--&gt;
+    &lt;h1&gt;${goods.itemType}&lt;/h1&gt;
+    &lt;!-- 商品全称--&gt;
+    &lt;h3&gt;${goods.title}&lt;/h3&gt;
+    &lt;!-- 价格部分--&gt;
+    &lt;div class=&quot;price&quot;&gt;
+        &lt;div id=&quot;pro_price&quot;&gt;&lt;b&gt;学员售价：&lt;/b&gt;&lt;span&gt;￥${goods.price}.00&lt;/span&gt;&lt;/div&gt;
+        &lt;div class=&quot;promise&quot;&gt;
+            &lt;b&gt;服务承诺：&lt;/b&gt;
+            &lt;span&gt;*退货补运费&lt;/span&gt;
+            &lt;span&gt;*30天无忧退货&lt;/span&gt;
+            &lt;span&gt;*48小时快速退款&lt;/span&gt;
+            &lt;span&gt;*72小时发货&lt;/span&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;!-- 参数部分 客服--&gt;
+    &lt;p class=&quot;parameter&quot;&gt;
+        &lt;b&gt;客服：&lt;/b&gt;
+        &lt;span class=&quot;connect&quot;&gt;联系客服&lt;/span&gt;&lt;img class=&quot;gif&quot; src=&quot;../images/product_detail/kefuf.gif&quot;&gt;
+    &lt;/p&gt;
+    &lt;!-- 颜色--&gt;
+    &lt;p class=&quot;style&quot; id=&quot;choose_color&quot;&gt;
+        &lt;s class=&quot;color&quot;&gt;颜色：&lt;/s&gt;
+        &lt;input type=&quot;button&quot; class=&quot;i1&quot; value=&quot;黑色&quot; title=&quot;黑色&quot;/&gt;
+        &lt;input type=&quot;button&quot; class=&quot;i2&quot; value=&quot;灰色&quot; title=&quot;灰色&quot;/&gt;
+        &lt;input type=&quot;button&quot; class=&quot;i3&quot; value=&quot;金色&quot; title=&quot;金色&quot;/&gt;
+        &lt;input type=&quot;button&quot; class=&quot;i4&quot; value=&quot;白色&quot; title=&quot;白色&quot;/&gt;
+    &lt;/p&gt;
+    &lt;!-- 规格--&gt;
+    &lt;p&gt;
+        &lt;s&gt;规格：&lt;/s&gt;
+        &lt;span class=&quot;avenge&quot;&gt;15寸 15 1T&lt;/span&gt;
+        &lt;span class=&quot;avenge&quot;&gt;18寸 18 2T&lt;/span&gt;
+        &lt;span class=&quot;avenge&quot;&gt;19寸 19 3T&lt;/span&gt;
+    &lt;/p&gt;
+    &lt;!-- 未选择规格，颜色时状态--&gt;
+    &lt;div class=&quot;message&quot;&gt;&lt;/div&gt;
+    &lt;!-- 数量--&gt;
+    &lt;p class=&quot;accountChose&quot;&gt;
+        &lt;s&gt;数量：&lt;/s&gt;
+        &lt;button class=&quot;numberMinus&quot;&gt;-&lt;/button&gt;
+        &lt;input type=&quot;text&quot; value=&quot;1&quot; class=&quot;number&quot; id=&quot;buy-num&quot;&gt;
+        &lt;button class=&quot;numberAdd&quot;&gt;+&lt;/button&gt;
+    &lt;/p&gt;
+    &lt;!-- 购买部分--&gt;
+    &lt;div class=&quot;shops&quot;&gt;
+        &lt;a href=&quot;cart.html&quot; class=&quot;buy lf&quot; id=&quot;buy_now&quot;&gt;立即购买&lt;/a&gt;
+        &lt;a href=&quot;#&quot; class=&quot;shop lf&quot; id=&quot;add_cart&quot;&gt;&lt;img src=&quot;../images/product_detail/product_detail_img7.png&quot; alt=&quot;&quot;/&gt;加入购物车&lt;/a&gt;
+        &lt;a href=&quot;#&quot; class=&quot;collection lf&quot; id=&quot;collect&quot;&gt;&lt;span&gt;收藏&lt;/span&gt;&lt;/a&gt;&lt;b&gt;&lt;img src=&quot;../images/product_detail/product_detail_img6.png&quot;                                                                       alt=&quot;&quot;/&gt;&lt;/b&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+<h1>购物车</h1>
+<h2>设计表t_cart</h2>
+<pre><code>create table t_cart(
+    id int auto_increment primary key,
+    uid int not null,
+    goods_id varchar(200) not null,
+    num int,
+    created_user varchar(50),
+    created_time date,
+    modified_user varchar(50),
+    modified_time date
+)default charset=utf8;
+</code></pre>
+
+<h2>1.添加购物车</h2>
+<h3>1.1 添加购物车-持久层</h3>
+<p>新建Cart类</p>
+<pre><code>public class Cart{
+    private Integer id;
+    private Integer uid;
+    private String goodsId;
+    private Integer num;
+    private String createdUser;
+    private Date createdTime;
+    private String modifiedUser;
+    private Date modifiedTime;
+    ...
+}
+</code></pre>
+
+<p>1.新建CartMapper接口,定义方法,完成添加购物车</p>
+<pre><code>public interface CartMapper{
+    void insertCart(Cart cart);
+}
+</code></pre>
+
+<p>2.新建CartMapper.xml(拷贝,改名,删除),编写sql语句;注意:namespace=&quot;xx.xx.CartMapper&quot;</p>
+<pre><code>&lt;insert id=&quot;insertCart&quot; parameterType=&quot;xx.xx.Cart&quot;&gt;
+    insert into t_cart(
+        uid,goods_id,num,
+        created_user,created_time,
+        modified_user,modified_time
+    )values(
+        #{uid},#{goodsId},#{num},
+        #{createdUser},#{createdTime},
+        #{modifiedUser},#{modifiedTime}
+    )
+&lt;/insert&gt;
+</code></pre>
+
+<p>测试:(10分钟)
+16点15上课</p>
+<h3>1.2 添加购物车-业务层</h3>
+<p>1.新建ICartService接口,定义方法</p>
+<pre><code>public inteface ICartService{
+    void addCart(Cart cart);
+}
+</code></pre>
+
+<p>2.新建CartService实现类,实现方法.方法的功能:调用持久层方法;</p>
+<p>(10分钟)</p>
+<h3>1.3 添加购物车-控制器层</h3>
+<pre><code>/cart/addCart.do
+请求参数:session(uid),goodsId,num
+请求方式:get
+响应方式:ResponseBody
+@Controller
+@RequestMapping(&quot;/cart&quot;)
+public class CartController extends BaseController{
+    @
+    private ICartService cartService;
+    @
+    @
+    public ResponseResult&lt;Void&gt; addCart(
+        HttpSession session,
+        String goodsId,
+        Integer num){
+        //1.创建rr对象
+        //2.调用业务层方法
+        //3.state=1;message=&quot;添加成功&quot;
+        return rr;
+    }
+}
+</code></pre>
+
+<p>测试:</p>
+<h3>1.4 添加购物车-页面</h3>
+<pre><code>$(&quot;#add_cart&quot;).click(function (e) {
+        $.ajax({
+            //1.发送异步请求
+            //2.请求成功,显示 alert(obj.message);
+            url:&quot;../cart/addCart.do&quot;,
+            data:&quot;goodsId=&quot;+$(&quot;#goodsid&quot;).val()+
+                  &quot;&amp;num=&quot;+$(&quot;#buy-num&quot;).val(),
+            type:&quot;get&quot;,
+            dataType:&quot;json&quot;,
+            success:function(obj){
+                if(obj.state==1){
+                    alert(obj.message);
+                }
+            },
+            //异步请求,如果拦截器拦截,重定向到login页面,不会
+            //直接到达重定向的页面,以302状态码的形式响应回来
+            //通过error属性处理
+            error:function(obj){
+                location=&quot;../user/showLogin.do&quot;;
+            }
+
+        });
+});
+</code></pre>
+
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>day06</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<h2>5.修改密码</h2>
+<h3>5.1 修改密码-持久层</h3>
+<h3>5.2 修改密码-业务层</h3>
+<h3>5.3 修改密码-控制器层</h3>
+<p>调整控制器</p>
+<p>在controller包中,定义BaseController,类中定义方法getId(),完成获取id功能.</p>
+<pre><code>public class BaseController{
+    public Integer getId(HttpSession session){
+        User user = (User)session.getAttribute(&quot;user&quot;);
+        if(user == null){
+            return null;
+        }else{
+            return user.getId();
+        }
+    }
+}
+</code></pre>
+
+<p>让UserController继承BaseController;调整updatePassword方法,重新获取id值</p>
+<p>测试:(10分钟)</p>
+<h3>5.4 修改密码-页面</h3>
+<p>1.在页面包含header.jsp</p>
+<p>2.定义两个函数</p>
+<pre><code>&lt;script type=&quot;text/javascript&quot;&gt;
+//验证密码长度
+function checkPasswordLength(pwd){
+    return pwd.length&gt;=6&amp;&amp;pwd.length&lt;=9;
+}
+//验证新密码和确认密码是否相同
+function checkEqualsPwd(){
+    //获取新密码框的值
+    var newPwdValue = $(&quot;#newPwd&quot;).val();
+    //获取确认新密码框的值
+    var confirmPwdValue = 
+        $(&quot;#confirmPwd&quot;).val();
+    return newPwdValue==confirmPwdValue;
+
+}
+&lt;/script&gt;
+</code></pre>
+
+<p>3.验证旧密码和新密码格式是否正确,确认密码和新密码是否一致</p>
+<pre><code>//旧密码框长度的验证
+$(&quot;#oldPwd&quot;).blur(function(){
+    //获取旧密码
+    var oldPwdValue = $(&quot;#oldPwd&quot;).val();
+    if(checkPasswordLength(oldPwdValue)){
+        $(&quot;#oldPwdSpan&quot;).html(&quot;密码格式正确&quot;);
+        $(&quot;#oldPwdSpan&quot;).css(&quot;color&quot;,&quot;green&quot;);
+    }else{
+        $(&quot;#oldPwdSpan&quot;).html(&quot;密码格式不正确&quot;);
+        $(&quot;#oldPwdSpan&quot;).css(&quot;color&quot;,&quot;red&quot;);
+    }
+});
+//新密码框长度的验证
+$(&quot;#newPwd&quot;).blur(function(){
+    //获取旧密码
+    var newPwdValue = $(&quot;#newPwd&quot;).val();
+    if(checkPasswordLength(newPwdValue)){
+        $(&quot;#newPwdSpan&quot;).html(&quot;密码格式正确&quot;);
+        $(&quot;#newPwdSpan&quot;).css(&quot;color&quot;,&quot;green&quot;);
+    }else{
+        $(&quot;#newPwdSpan&quot;).html(&quot;密码格式不正确&quot;);
+        $(&quot;#newPwdSpan&quot;).css(&quot;color&quot;,&quot;red&quot;);
+    }
+});
+//新密码和确认新密码是否一致
+$(&quot;#confirmPwd&quot;).blur(function(){
+    if(checkEqualsPwd()){
+        $(&quot;#confirmPwdSpan&quot;).
+                html(&quot;两次密码输入一致&quot;);
+        $(&quot;#confirmPwdSpan&quot;).
+                css(&quot;color&quot;,&quot;green&quot;);
+    }else{
+        $(&quot;#confirmPwdSpan&quot;).
+                html(&quot;两次密码输入不一致&quot;);
+        $(&quot;#confirmPwdSpan&quot;).
+                css(&quot;color&quot;,&quot;red&quot;);
+    }
+});
+</code></pre>
+
+<p>4.保存修改</p>
+<pre><code>//保存修改
+function updatePassword(){
+    var oldPwdValue = $(&quot;#oldPwd&quot;).val();
+    var newPwdValue = $(&quot;#newPwd&quot;).val();
+    if(checkPasswordLength(oldPwdValue)&amp;&amp;
+        checkPasswordLength(newPwdValue)&amp;&amp;
+        checkEqualsPwd()){
+        $.ajax({
+            url:&quot;../user/updatePassword.do&quot;,
+            data:&quot;oldPwd=&quot;+oldPwdValue+
+                  &quot;&amp;newPwd=&quot;+newPwdValue,
+            type:&quot;post&quot;,
+            dataType:&quot;json&quot;,
+            success:function(obj){
+                if(obj.state==0){
+                    alert(obj.message);
+                }else{
+                    location=&quot;../user/showLogin.do&quot;;
+                }
+            }
+        });
+    }
+}
+</code></pre>
+
+<p>5.调整侧边栏</p>
+<pre><code>&lt;!-- 处理侧边栏 --&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+$(function(){
+    //把所有的dd隐藏
+    $(&quot;#leftsidebar_box dd&quot;).hide();
+    //设置账号管理的列表显示
+    $(&quot;#leftsidebar_box .count_managment dd&quot;).show();
+   //设置所有的图片为 myOrder2.png
+    $(&quot;#leftsidebar_box dt img&quot;).attr(&quot;src&quot;,&quot;../images/myOrder/myOrder2.png&quot;);
+  //设置账号管理的图片为myOrder1.png
+    $(&quot;#leftsidebar_box .count_managment&quot;).find('img').attr(&quot;src&quot;,&quot;../images/myOrder/myOrder1.png&quot;);
+
+});
+&lt;/script&gt;
+</code></pre>
+
+<p>6.把侧边栏截取成片段;在web文件夹中创建left.jsp文件,做成片段文件;在该文件中包含进来</p>
+<pre><code>&lt;!-- 左边栏--&gt;
+&lt;jsp:include page=&quot;left.jsp&quot;&gt;&lt;/jsp:include&gt;
+</code></pre>
+
+<h2>6.修改个人信息</h2>
+<h3>6.1 修改个人信息-显示页面</h3>
+<p>在UserController类中定义方法,显示修改个人信息</p>
+<pre><code>@RequestMapping(&quot;/showPersonInfo.do&quot;)
+public String showPersonInfo(){
+    return &quot;personPage&quot;;
+}
+</code></pre>
+
+<p>把personage.html修改为personPage.jsp</p>
+<p>(5分钟)</p>
+<p>调整页面</p>
+<p>1.包含header.jsp</p>
+<p>2.调整组件,显示数据</p>
+<p>3.在personal_password页面,给<code>我的信息</code>和<code>安全管理</code>添加链接;在personPage页面,给<code>我的信息</code>和<code>安全管理</code>添加链接</p>
+<p>4.把左边栏包含进来.</p>
+<p>5.把左边栏中<code>我的信息</code>和<code>安全管理</code>添加链接</p>
+<p>6.调整左边栏</p>
+<h3>6.2 修改个人信息-持久层</h3>
+<h3>6.3 修改个人信息-业务层</h3>
+<p>1.在IUserService 接口中定义方法</p>
+<pre><code>void updateUser(Integer id,String username,Integer gender,String phone,String email);
+</code></pre>
+
+<p>2.在UserService实现类中实现方法</p>
+<pre><code>public void updateUser(Integer id, String username, Integer gender, String phone, String email) {
+    User newUser = new User();
+    newUser.setId(id);
+    newUser.setGender(gender);
+    newUser.setPhone(phone);
+    newUser.setEmail(email);
+    //根据id查询;返回user对象
+    User user = userMapper.selectUserById(id);
+    if(user==null){
+        //如果user==null;抛出异常
+        throw new UserNotFoundException(&quot;用户不存在&quot;);
+    }else{
+        //根据用户名查询;返回user1
+        User user1 = 
+                userMapper.
+                selectUserByUsername(username);
+        if(user1!=null){
+
+            //当前的用户名就是登陆的用户名
+            if(user1.getUsername().equals(
+                    user.getUsername())){
+            }else{
+                //否则抛出异常
+                throw new 
+                UsernameAlreadyExistException(
+                        &quot;用户名已存在&quot;);
+            }
+        }else{
+            //数据库中没有相同的用户名,
+            //设置用户名为newUser的属性.
+            newUser.setUsername(username);
+        }
+        //修改用户信息
+        userMapper.updateUser(newUser);
+
+    }
+
+}
+</code></pre>
+
+<p>测试:(20分种)</p>
+<h3>6.3 修改个人信息-控制器层</h3>
+<pre><code>/updateUser.do
+参数列表:session ,username,gender,phone,email
+请求方式:post
+响应方式:ResponseBody
+</code></pre>
+
+<p>在UserController类中定义方法</p>
+<pre><code>@RequestMapping(&quot;/updateUser.do&quot;)
+@ResponseBody
+public ResponseResult&lt;Void&gt; updateUser(
+                HttpSession session,String username,
+                Integer gender,String phone,String email){
+    //1.创建rr对象
+    try{
+        //调用业务层方法
+        state = 1 ;message=&quot;修改成功&quot;
+    }catch(RuntimeException e){
+        state = 0; message = e.getMassage();
+    }
+    return rr;
+}
+</code></pre>
+
+<p>(10分钟)</p>
+<h3>6.4 修改个人信息-页面</h3>
+<pre><code>//异步请求保存修改
+function saveUpdate(){
+    $.ajax({
+        url:&quot;../user/updateUser.do&quot;,
+        data:$(&quot;#form_update&quot;).serialize(),
+        type:&quot;post&quot;,
+        dataType:&quot;json&quot;,
+        success:function(obj){
+            if(obj.state==0){
+                alert(obj.message);
+            }else{
+                alert(obj.message);
+            }
+        }
+    });
+
+}
+</code></pre>
+
+<p>在IUserService接口中定义方法;实现类中实现方法</p>
+<pre><code>User getUserById(Integer id);
+
+public User getUserById(Integer id) {
+
+    return userMapper.selectUserById(id);
+}   
+</code></pre>
+
+<p>调整控制器代码</p>
+<pre><code>在updateUser方法中添加以下代码
+
+//获取user对象
+User user = userService.getUserById(this.getId(session));
+/重新设置session的user对象
+session.setAttribute(&quot;user&quot;, user);
+</code></pre>
+
+<p>修改成功,重新跳转到personPage.jsp页面</p>
+<pre><code>success:function(obj){
+    if(obj.state==0){
+        alert(obj.message);
+    }else{
+        //刷新页面
+        location=&quot;../user/showPersonInfo.do&quot;;
+        }
+}
+</code></pre>
+
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

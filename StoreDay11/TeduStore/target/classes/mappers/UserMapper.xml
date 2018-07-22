@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+  
+<mapper namespace="cn.tedu.store.mapper.UserMapper">
+	<!-- 修改头像 -->
+	<!-- void updateImage(@Param("image") String image,
+			@Param("id") Integer id)
+	 -->
+	
+	<update id="updateImage">
+		update t_user
+		set
+			image = #{image}
+		where
+			id = #{id}
+	</update>
+	
+	<!-- 根据id查询用户信息 -->
+	<!-- User selectUserById(Integer id) -->
+	<select id="selectUserById" 
+			  resultType="cn.tedu.store.bean.User">
+			
+			select
+				id,username,password,gender,email,phone,
+				image,
+				created_user createdUser,
+				created_time createdTime,
+				modified_user modifiedUser,
+				modified_time modifiedTime
+			from
+				t_user
+			where
+				id=#{id}
+			  
+	</select>
+	
+	<!-- 修改用户 信息 -->
+	<!-- void updateUser(User user) -->
+	<update id="updateUser" 
+			parameterType="cn.tedu.store.bean.User">
+		update t_user
+		<set>
+			<if test="password!=null">
+			   password = #{password},
+			</if>
+			<if test="username!=null">
+			   username = #{username},
+			</if>
+			<if test="gender!=null">
+			   gender = #{gender},
+			</if>	
+			<if test="email!=null">
+			   email = #{email},
+			</if>
+			<if test="phone!=null">
+			   phone = #{phone}
+			</if>
+		</set>
+		where
+			id = #{id}
+			
+	</update>
+	
+	<!-- 根据电话号码查询用户信息 -->
+	<!-- Integer selectByPhone(String phone); -->
+	
+	<select id="selectByPhone" 
+			resultType="java.lang.Integer">
+			select count(*)
+			from 
+				t_user
+			where
+				phone=#{phone}	
+	</select>
+	
+	<!-- 根据邮箱查询用户信息 -->
+	<!-- Integer selectByEmail(String email); -->
+	
+	<select id="selectByEmail" 
+			resultType="java.lang.Integer">
+	
+		select count(*)
+			from 
+				t_user
+			where
+				email=#{email}		
+	</select>
+	
+	<!-- 根据用户名查询用户信息 -->
+	<!-- User selectUserByUsername(String username); -->
+	<select id="selectUserByUsername" 
+			resultType="cn.tedu.store.bean.User">
+		select 
+			id,username,password,phone,email,image,gender,
+			created_user createdUser,
+			created_time createdTime,
+			modified_user modifiedUser,
+			modified_time modifiedTime
+		from
+			t_user
+		where
+			username=#{username}
+	</select>
+	
+	
+	
+	<!-- 插入用户信息 -->
+	<!-- void insertUser(User user); -->
+	
+	<insert id="insertUser" 
+	parameterType="cn.tedu.store.bean.User">
+		
+		insert into t_user(
+			username,password,email,phone,
+			created_user,created_time,
+			modified_user,modified_time
+		)values(
+			#{username},#{password},#{email},#{phone},
+			#{createdUser},#{createdTime},
+			#{modifiedUser},#{modifiedTime}
+		)
+	
+	</insert>
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

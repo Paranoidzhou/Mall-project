@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>day07</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<h3>5.5 上传图片</h3>
+<p>1.上传图片</p>
+<p>1)在spring-mvc.xml配置上传图片的组件</p>
+<pre><code>    &lt;!-- 配置上传文件的组件 
+      id的值必须为&quot;multipartResolver&quot; 
+--&gt;
+&lt;bean id=&quot;multipartResolver&quot; 
+class=&quot;org.springframework.web.multipart.commons.CommonsMultipartResolver&quot;&gt;
+    &lt;!-- 配置最大的上传文件10兆 --&gt;
+    &lt;property name=&quot;maxUploadSize&quot; value=&quot;10000000&quot;/&gt;
+    &lt;!-- 设置默认的编码格式 --&gt;
+    &lt;property name=&quot;defaultEncoding&quot; value=&quot;utf-8&quot;/&gt;
+&lt;/bean&gt;
+</code></pre>
+
+<p>2)页面</p>
+<pre><code>//上传头像图片
+function getImage(){
+    //创建一个设置表单数据的对象
+    var formData = new FormData();
+    //获取上传文件的文件对象
+    var file = 
+        document.getElementById(&quot;iconPic&quot;).files[0];
+    formData.append(&quot;file&quot;,file);
+
+    $.ajax({
+        url:&quot;../user/upload.do&quot;,
+        data:formData,
+        type:&quot;post&quot;,
+        dataType:&quot;json&quot;,
+        //不处理数据
+        contentType:false,
+        processData:false,
+        success:function(obj){
+            alert(obj.messge);
+            //创建url对象
+            var url = window.URL.createObjectURL(file);
+            icon.src=url;
+        }
+
+    });
+}
+</code></pre>
+
+<p>3)控制器</p>
+<pre><code>//上传图片
+@RequestMapping(&quot;/upload.do&quot;)
+@ResponseBody
+public ResponseResult&lt;Void&gt; upload(
+@RequestParam(&quot;file&quot;) MultipartFile file,
+HttpSession session) throws Exception{
+    ResponseResult&lt;Void&gt; rr = 
+            new ResponseResult&lt;Void&gt;();
+    //获取服务器的真实路径
+    String path = 
+            session.getServletContext().
+            getRealPath(&quot;/&quot;);
+    System.out.println(path);
+    //上传
+    file.transferTo(
+            new File(path,&quot;/upload/&quot;+file.getOriginalFilename()));
+
+
+    return rr;
+
+}
+</code></pre>
+
+<p>2.保存图片</p>
+<p>2.1)在UserMapper接口中定义方法</p>
+<pre><code>void updateImage(@Param(&quot;image&quot;) String image,@Param(&quot;id&quot;) Integer id);
+</code></pre>
+
+<p>2.2)在UserMapper.xml文件中,编写update语句</p>
+<pre><code>&lt;update id=&quot;updateImage&quot;&gt;
+    update t_user
+    set
+        image = #{image}
+    where
+        id=#{id}
+&lt;/update&gt;
+</code></pre>
+
+<p>测试:(10分钟)</p>
+<p>业务层:</p>
+<p>在IUserService中定义方法 ;</p>
+<pre><code>void updateImage(String image,Integer id);
+</code></pre>
+
+<p>在UserService类中实现方法</p>
+<pre><code>public void updateImage(String image,Integer id){
+    //调用持久层方法;
+}
+</code></pre>
+
+<p>测试:(5分钟)</p>
+<p>控制器层:</p>
+<pre><code>//保存头像
+    userService.updateImage(
+            &quot;/upload/&quot;+file.getOriginalFilename(), 
+            this.getId(session));
+    //更新session中的user对象
+    session.setAttribute(
+            &quot;user&quot;,
+            userService.
+            getUserById(this.getId(session)));
+</code></pre>
+
+<p>调整页面</p>
+<pre><code> &lt;c:if test=&quot;${user.image==null}&quot;&gt;
+                &lt;img src=&quot;../images/personage/touxiang.png&quot; alt=&quot;&quot; id=&quot;icon&quot; width=&quot;50px&quot; height=&quot;50px&quot;/&gt;
+                &lt;/c:if&gt;
+                &lt;c:if test=&quot;${user.image!=null}&quot;&gt;
+                &lt;img src=&quot;..${user.image}&quot; alt=&quot;&quot; id=&quot;icon&quot; width=&quot;50px&quot; height=&quot;50px&quot;/&gt;
+                &lt;/c:if&gt;
+</code></pre>
+
+<h2>登录拦截器</h2>
+<p>1.定义拦截器</p>
+<pre><code>//登录拦截器
+public class LoginInterceptor 
+         implements HandlerInterceptor{
+//在controller方法之前执行
+public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
+        throws Exception {
+    //1.判断session中有没有user对象
+    HttpSession session = 
+            request.getSession();
+    Object obj = session.getAttribute(&quot;user&quot;);      
+    //2.如果有,return true;
+    if(obj!=null){
+        return true;
+    }else{
+    //3.如果没有,重定向的到登录页面
+        String url = 
+                request.getContextPath()+
+                &quot;/user/showLogin.do&quot;;
+        response.sendRedirect(url);
+        return false;
+    }
+}
+//控制器方法执行完成,但是没有响应视图
+public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
+        ModelAndView modelAndView) throws Exception {
+    // TODO Auto-generated method stub
+
+}
+//视图响应成功之后执行.
+public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)
+        throws Exception {
+    // TODO Auto-generated method stub
+
+}
+
+}
+</code></pre>
+
+<p>2.配置拦截器</p>
+<pre><code>         &lt;mvc:interceptors&gt;
+        &lt;mvc:interceptor&gt;
+            &lt;mvc:mapping path=&quot;/user/*&quot;/&gt;
+            &lt;mvc:exclude-mapping 
+                path=&quot;/user/showLogin.do&quot;/&gt;
+            &lt;mvc:exclude-mapping 
+                path=&quot;/user/login.do&quot;/&gt;
+            &lt;mvc:exclude-mapping 
+                path=&quot;/user/register.do&quot;/&gt;
+            &lt;mvc:exclude-mapping 
+                path=&quot;/user/showRegister.do&quot;/&gt;
+            &lt;mvc:exclude-mapping 
+                path=&quot;/user/checkUsername.do&quot;/&gt;
+            &lt;mvc:exclude-mapping 
+                path=&quot;/user/checkPhone.do&quot;/&gt;
+            &lt;mvc:exclude-mapping 
+                path=&quot;/user/checkEmail.do&quot;/&gt;
+            &lt;bean class=
+            &quot;cn.tedu.store.interceptor.LoginInterceptor&quot;/&gt;
+        &lt;/mvc:interceptor&gt;
+     &lt;/mvc:interceptors&gt;
+</code></pre>
+
+<h1>2.地址管理</h1>
+<h2>设计表</h2>
+<pre><code>create table t_address(
+    id int auto_increment primary key,
+    uid int not null,
+    recv_username varchar(50),
+    recv_provinceCode varchar(6),
+    recv_cityCode varchar(6),
+    recv_areaCode varchar(6),
+    recv_address varchar(100),
+    recv_district varchar(100),
+    recv_phone  varchar(32),
+    recv_tel varchar(32),
+    recv_zip varchar(6),
+    recv_tag varchar(6),
+    is_default int(1),
+    created_user varchar(50),
+    created_time date,
+    modified_user varchar(50),
+    modified_time date  
+)default charset=utf8
+</code></pre>
+
+<h2>2.1 显示地址页面</h2>
+<p>新建AddressController,定义showAddress方法</p>
+<pre><code>@Controller
+@RequestMapping(&quot;/address&quot;)
+public class AddressController extends BaseController{
+    @RequestMapping(&quot;/showAddress.do&quot;)
+    public String showAddress(){
+        return &quot;addressAdmin&quot;;
+    }
+}
+</code></pre>
+
+<p>把addressAdmin.html改为addressAdmin.jsp
+(5分钟)</p>
+<p>调整页面</p>
+<p>1.包含header.jsp</p>
+<p>2.包含left.jsp</p>
+<p>3.在左边栏中给<code>地址管理</code>添加链接</p>
+<p>4.添加拦截器代码</p>
+<pre><code>&lt;mvc:mapping path=&quot;/address/*&quot;/&gt;
+</code></pre>
+
+<p>5.在ftp上下载<code>省市区数据表sql代码.zip</code>文件,解压到<code>省市区数据表sql代码</code>文件夹,在mysql的控制器端执行: source e:/t_dict.sql</p>
+<h2>2.2显示省市区类表</h2>
+<h3>2.2.1.显示省列表</h3>
+<p>1.持久层</p>
+<p>新建Province实体类</p>
+<pre><code>public class Province{
+    private Integer id;
+    private String provinceCode;
+    private String provinceName;
+    //......
+}
+</code></pre>
+
+<p>1)新建DictMapper接口,在接口中定义方法</p>
+<pre><code>public interface DictMapper{
+    List&lt;Province&gt; selectProvince();
+}
+</code></pre>
+
+<p>2)新建DictMapper.xml(拷贝,修改名称,删除),在<code>mapper</code>节点中定义<code>select</code>节点,完成sql的编写</p>
+<pre><code>&lt;select id=&quot;selectProvince&quot; resultType=&quot;xx.xx.Province&quot;&gt;
+    select
+        id,province_code provinceCode,
+        province_name provinceName
+    from
+        t_dict_provinces
+&lt;/select&gt;
+</code></pre>
+
+<p>测试:(10分钟)</p>
+<p>2.业务层</p>
+<p>1)新建IDictService接口,定义方法</p>
+<pre><code>public interface IDictService{
+    List&lt;Province&gt; getProvice();
+}
+</code></pre>
+
+<p>2)新建DictService实现类,把方法给实现了</p>
+<pre><code>@Service
+public class DictService{
+    @Resource
+    private DictMapper dictMapper;
+    public List&lt;Province&gt; getProvice(){
+        //返回持久的方法的返回值
+    }
+}
+</code></pre>
+
+<p>测试:(20分钟回来上课) 17点15上课</p>
+<p>3.控制器层</p>
+<pre><code>/dict/getProvince.do
+请求参数:无
+请求方式:get
+响应方式:ResponseBody
+</code></pre>
+
+<p>新建DictController类,定义getProvince方法</p>
+<pre><code>@Controller
+@RequestMapping(&quot;/dict&quot;)
+public class DictController{
+
+    @Resource
+    private IDictService dictService;
+    //显示省信息
+    @RequestMapping(&quot;/getProvince.do&quot;)
+    @ResponseBody
+    public ResponseResult&lt;List&lt;Province&gt;&gt; getProvince(){
+        //1.创建rr对象
+        //2.调用业务层的方法;返回list集合
+        //3.把list设置到rr对象中.
+        //4.state = 1;message = &quot;成功&quot;
+        return rr;
+    } 
+}
+</code></pre>
+
+<p>测试:(10分钟)</p>
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>day08</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<h1>地址管理</h1>
+<h2>1.添加地址</h2>
+<h3>1.1 显示页面</h3>
+<h3>1.2 显示省市区列表</h3>
+<h3>1.2.1 显示省列表</h3>
+<p>1.持久层</p>
+<p>2.业务层</p>
+<p>3.控制器层</p>
+<p>4.页面-在下拉列表中显示省信息</p>
+<pre><code>//显示省列表信息的函数
+function getProvince(){
+    $.ajax({
+        url:&quot;../dict/getProvince.do&quot;,
+        data:&quot;&quot;,
+        type:&quot;get&quot;,
+        dataType:&quot;json&quot;,
+        success:function(obj){
+            if(obj.state==1){
+                $(&quot;#receiverState&quot;).
+                    html(&quot;&lt;option&gt;...请选择...&lt;/option&gt;&quot;);
+                for(i=0;i&lt;obj.data.length;i++){
+                    var op = new Option(
+                            obj.data[i].provinceName,
+                            obj.data[i].provinceCode);
+                    $(&quot;#receiverState&quot;).append(op);
+                }
+            }
+        }
+    });
+}
+</code></pre>
+
+<h3>1.2.2显示城市列表</h3>
+<p>1.持久层</p>
+<p>新建City实体类</p>
+<pre><code>public class City{
+    private Integer id;
+    private String provinceCode;
+    private String cityCode;
+    private String cityName;
+    //...
+}
+</code></pre>
+
+<p>(5分钟)	</p>
+<p>1)在DictMapper接口中定义方法</p>
+<pre><code>List&lt;City&gt; selectCity(String provinceCode);
+</code></pre>
+
+<p>2)在DictMapper.xml中定义select节点,完成sql语句</p>
+<pre><code>&lt;select id=&quot;selectCity&quot; resultType=&quot;xx.xx.City&quot;&gt;
+    select
+        id,
+        province_code provinceCode,
+        city_code cityCode,
+        city_name cityName
+    from
+        t_dict_cities
+    where
+        province_code = #{provinceCode}
+&lt;/select&gt;
+</code></pre>
+
+<p>测试：（10分钟）</p>
+<p>2.业务层</p>
+<p>1)在IDictService接口中定义方法</p>
+<pre><code>List&lt;City&gt; getCity(String provinceCode);
+</code></pre>
+
+<p>2)在DictService实现类中实现方法,返回持久层的方法的返回值</p>
+<p>3.控制器层</p>
+<pre><code>/getCity.do
+参数列表:provinceCode
+请求方式:get
+响应方式:ResponseBody
+
+@
+@
+public ResponseResult&lt;List&lt;City&gt;&gt; getCity(String provinceCode){
+    //1.创建rr对象
+    //2.调用业务层方法;返回list
+    //3.把list设置到data属性
+    //4.state = 1;message=&quot;成功&quot;
+    return rr;
+}
+</code></pre>
+
+<p>测试:(15分钟)</p>
+<p>4.页面:在城市列表中显示城市信息</p>
+<pre><code>//显示城市列表信息的函数
+function getCity(provinceCode){
+    $.ajax({
+        url:&quot;../dict/getCity.do&quot;,
+        data:&quot;provinceCode=&quot;+provinceCode,
+        type:&quot;get&quot;,
+        dataType:&quot;json&quot;,
+        success:function(obj){
+            $(&quot;#receiverCity&quot;).html(
+                &quot;&lt;option&gt;...请选择...&lt;/option&gt;&quot;);
+            for(i=0;i&lt;obj.data.length;i++){
+                var op = new Option(
+                        obj.data[i].cityName,
+                        obj.data[i].cityCode);
+                $(&quot;#receiverCity&quot;).append(op);
+            }
+        }
+    });
+}
+</code></pre>
+
+<h3>1.2.3区县信息</h3>
+<p>1.持久层</p>
+<p>新建Area实体类</p>
+<pre><code>public class Area{
+    private Integer id;
+    private String cityCode;
+    private String areaCode;
+    private String areaName;
+    //..
+}
+</code></pre>
+
+<p>1)在DictMapper接口中定义方法</p>
+<pre><code>List&lt;Area&gt; getArea(String cityCode);
+</code></pre>
+
+<p>2)在DictMapper.xml文件中,定义select节点,编写sql语句</p>
+<pre><code>&lt;select id=&quot;getArea&quot; resultType=&quot;xx.xx.Area&quot;&gt;
+    select
+        id,
+        city_code cityCode,
+        area_code areaCode,
+        area_name areaName
+    from 
+        t_dict_areas
+    where
+        city_code=＃{cityCode}
+
+&lt;/select&gt;
+</code></pre>
+
+<p>测试：</p>
+<p>2.业务层
+　
+１）在IDictService接口中定义方法</p>
+<pre><code>List&lt;Area&gt; getArea(String cityCode);
+</code></pre>
+
+<p>２）在DictService实现类中,实现方法;功能:把持久层的方法的返回值 返回</p>
+<p>3.控制层</p>
+<pre><code>@
+@
+public ResponseResult&lt;List&lt;Area&gt;&gt; getArea(String cityCode){
+    //1.创建rr对象
+    //2.调用业务层方法,返回list
+    //3.把list集合设置到rr对象
+    //4.state = 1;message =&quot;成功&quot;
+    return rr;
+}
+</code></pre>
+
+<p>测试:</p>
+<p>4.页面</p>
+<p>1)在city的下拉列表中定义onchange=getArea(this.value)</p>
+<p>2)定义getArea(cityCode)函数,实现异步提交</p>
+<p>(20分钟)</p>
+<p>省市区函数的调整</p>
+<pre><code>getProvince(provinceCode,cityCode,areaCode);
+getCity(provinceCode,cityCode,areaCode);
+getArea(cityCode,areaCode);
+
+三个函数的调用
+在getProvince(provinceCode,cityCode,areaCode)的异步请求之后调用getCity(provinceCode,cityCode,areaCode);在 getCity异步请求之后调用getArea(cityCode,areaCode);
+
+在省的onchange事件处理中调用函数getCity(this.value,-1,-1);
+在城市的onchange事件处理中调用函数getArea(this.value,-1);
+</code></pre>
+
+<p>页面的侧边栏调整</p>
+<pre><code>&lt;!-- 处理侧边栏 --&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+$(function(){
+    //把所有的dd隐藏
+    $(&quot;#leftsidebar_box dd&quot;).hide();
+    //设置账号管理的列表显示
+    $(&quot;#leftsidebar_box .address dd&quot;).show();
+   //设置所有的图片为 myOrder2.png
+    $(&quot;#leftsidebar_box dt img&quot;).attr(&quot;src&quot;,&quot;../images/myOrder/myOrder2.png&quot;);
+  //设置账号管理的图片为myOrder1.png
+    $(&quot;#leftsidebar_box .address&quot;).find('img').attr(&quot;src&quot;,&quot;../images/myOrder/myOrder1.png&quot;);
+
+});
+&lt;/script&gt;
+</code></pre>
+
+<p>通过code获取name</p>
+<p>1)在DictMapper接口中定义方法</p>
+<pre><code>String selectProvinceNameByCode(String provinceCode);
+String selectCityNameByCode(String cityCode);
+String selectAreaNameByCode(String areaCode);
+</code></pre>
+
+<p>2)在DictMapper.xml文件中定义3个select语句</p>
+<pre><code>&lt;select id=&quot;selectProvinceNameByCode&quot; resultType=&quot;java.lang.String&quot;&gt;
+    select 
+        province_name
+    from 
+        t_dict_provinces
+    where 
+        province_code = #{provinceCode}
+&lt;/select&gt;
+</code></pre>
+
+<p>测试:(15分钟)</p>
+<h3>1.3 添加收货人地址-持久层</h3>
+<p>新建Address实体类</p>
+<pre><code>public class Address{
+    private Integer id;
+    private Integer uid;
+    private String recvUsername;
+    private String recvProvinceCode;
+    private String recvCityCode;
+    private String recvAreaCode;
+    private String recvAddress;
+    private String recvDistrict;
+    private String recvPhone;
+    private String recvTel;
+    private String recvZip;
+    private String recvTag;
+    private Integer isDefault;
+    private String createdUser;
+    private Date createdTime;
+    private String modifiedUser;
+    private Date modifiedTime;
+}
+</code></pre>
+
+<p>1)新建AddressMapper接口,在接口中定义方法</p>
+<pre><code>public interface AddressMapper{
+    void insertAddress(Address address);
+}
+</code></pre>
+
+<p>2)新建AddressMapper.xml文件(拷贝,改名,删除),定义insert节点,编写insert语句</p>
+<pre><code>&lt;insert id=&quot;insertAddress&quot; parameterType=&quot;xx.xx.Address&quot;&gt;
+
+    insert into t_address(
+        uid,recv_username,
+        recv_provinceCode,recv_cityCode,recv_areaCode,
+        recv_address,recv_district,
+        recv_phone,recv_tel,recv_zip,
+        recv_tag,is_default,
+        created_user,created_time,
+        modified_user,modified_time
+    )values(
+        #{uid},#{recvUsername},
+    #{recvProvinceCode},#{recvCityCode},#{recvAreaCode},
+        #{recvAddress},#{recvDistrict},
+        #{recvPhone},#{recvTel},#{recvZip},
+        #{recvTag},#{isDefault},
+        #{createdUser},#{createdTime},
+        #{modifiedUser},#{modifiedTime}
+    )
+&lt;/insert&gt;
+</code></pre>
+
+<p>测试:(15分钟)</p>
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
